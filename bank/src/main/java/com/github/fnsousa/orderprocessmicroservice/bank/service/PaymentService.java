@@ -34,7 +34,7 @@ public class PaymentService {
             throw new BusinessException("Cartão inválido!");
         }
 
-        if (cardService.isEnoughCredit(addPaymentRequest.getCardNumber(), addPaymentRequest.getSecurityNumberCode(), addPaymentRequest.getOrderValue())) {
+        if (!cardService.isEnoughCredit(addPaymentRequest.getCardNumber(), addPaymentRequest.getSecurityNumberCode(), addPaymentRequest.getOrderValue())) {
             throw new BusinessException("Saldo insuficiente!");
         }
 
