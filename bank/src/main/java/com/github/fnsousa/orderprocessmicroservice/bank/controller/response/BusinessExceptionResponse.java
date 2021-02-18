@@ -1,4 +1,4 @@
-package com.github.fnsousa.orderprocessmicroservice.bank.domain.response;
+package com.github.fnsousa.orderprocessmicroservice.bank.controller.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

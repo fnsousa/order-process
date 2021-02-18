@@ -1,6 +1,6 @@
 package com.github.fnsousa.orderprocessmicroservice.bank.exception.handler;
 
-import com.github.fnsousa.orderprocessmicroservice.bank.domain.response.BusinessExceptionResponse;
+import com.github.fnsousa.orderprocessmicroservice.bank.controller.response.BusinessExceptionResponse;
 import com.github.fnsousa.orderprocessmicroservice.bank.exception.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

@@ -1,9 +1,8 @@
 package com.github.fnsousa.orderprocessmicroservice.bank.controller;
 
-import com.github.fnsousa.orderprocessmicroservice.bank.domain.request.AddPaymentRequest;
+import com.github.fnsousa.orderprocessmicroservice.bank.controller.request.AddPaymentRequest;
 import com.github.fnsousa.orderprocessmicroservice.bank.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

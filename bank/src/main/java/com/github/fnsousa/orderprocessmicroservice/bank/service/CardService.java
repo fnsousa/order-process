@@ -2,7 +2,7 @@ package com.github.fnsousa.orderprocessmicroservice.bank.service;
 
 import com.github.fnsousa.orderprocessmicroservice.bank.domain.entity.Card;
 import com.github.fnsousa.orderprocessmicroservice.bank.domain.repository.CardRepository;
-import com.github.fnsousa.orderprocessmicroservice.bank.domain.request.AddCardRequest;
+import com.github.fnsousa.orderprocessmicroservice.bank.controller.request.AddCardRequest;
 import com.github.fnsousa.orderprocessmicroservice.bank.exception.BusinessException;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
