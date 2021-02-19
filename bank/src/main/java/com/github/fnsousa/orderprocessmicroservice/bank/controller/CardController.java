@@ -1,6 +1,6 @@
 package com.github.fnsousa.orderprocessmicroservice.bank.controller;
 
-import com.github.fnsousa.orderprocessmicroservice.bank.controller.request.AddCardRequest;
+import com.github.fnsousa.orderprocessmicroservice.bank.dto.request.AddCardRequest;
 import com.github.fnsousa.orderprocessmicroservice.bank.service.CardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

@@ -1,6 +1,6 @@
 package com.github.fnsousa.orderprocessmicroservice.bank.exception.handler;
 
-import com.github.fnsousa.orderprocessmicroservice.bank.controller.response.BusinessExceptionResponse;
+import com.github.fnsousa.orderprocessmicroservice.bank.dto.response.PaymentResponse;
 import com.github.fnsousa.orderprocessmicroservice.bank.exception.BusinessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,7 +20,7 @@ public class BusinessExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(new BusinessExceptionResponse(ex.getMessage(), LocalDateTime.now()));
+                .body(new PaymentResponse(ex.getMessage()));
     }
 
 }

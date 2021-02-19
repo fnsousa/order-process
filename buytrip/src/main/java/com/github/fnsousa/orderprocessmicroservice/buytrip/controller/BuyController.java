@@ -29,8 +29,8 @@ public class BuyController {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @Value("${queue.payment}")
-    private String queuePayment;
+    @Value("${queue.buyprocess}")
+    private String queueBuyprocess;
 
     @PostMapping
     public ResponseEntity<BuyTripResponse> buy(@Valid @NotNull @RequestBody BuyTripRequest buyTripRequest) throws IOException {
@@ -43,7 +43,7 @@ public class BuyController {
 
         String json = obj.writeValueAsString(buyTripKey);
 
-        rabbitTemplate.convertAndSend(queuePayment, json);
+        rabbitTemplate.convertAndSend(queueBuyprocess, json);
 
         BuyTripResponse retorno = new BuyTripResponse();
         retorno.setMessage("Compra registrada com sucesso. Aguarda a confirmação do pagamento.");

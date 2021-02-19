@@ -1,4 +1,4 @@
-package com.github.fnsousa.orderprocessmicroservice.bank.controller.response;
+package com.github.fnsousa.orderprocessmicroservice.bank.dto.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -9,9 +9,8 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class BusinessExceptionResponse {
+public class PaymentResponse {
 
     private String message;
-    private LocalDateTime timestamp;
 
 }

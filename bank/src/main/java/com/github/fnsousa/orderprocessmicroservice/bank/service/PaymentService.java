@@ -2,7 +2,7 @@ package com.github.fnsousa.orderprocessmicroservice.bank.service;
 
 import com.github.fnsousa.orderprocessmicroservice.bank.domain.entity.Payment;
 import com.github.fnsousa.orderprocessmicroservice.bank.domain.repository.PaymentRepository;
-import com.github.fnsousa.orderprocessmicroservice.bank.controller.request.AddPaymentRequest;
+import com.github.fnsousa.orderprocessmicroservice.bank.dto.request.AddPaymentRequest;
 import com.github.fnsousa.orderprocessmicroservice.bank.exception.BusinessException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

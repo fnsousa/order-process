@@ -1,6 +1,7 @@
 package com.github.fnsousa.orderprocessmicroservice.bank.controller;
 
-import com.github.fnsousa.orderprocessmicroservice.bank.controller.request.AddPaymentRequest;
+import com.github.fnsousa.orderprocessmicroservice.bank.dto.request.AddPaymentRequest;
+import com.github.fnsousa.orderprocessmicroservice.bank.dto.response.PaymentResponse;
 import com.github.fnsousa.orderprocessmicroservice.bank.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -22,9 +23,10 @@ public class PaymentController {
     private PaymentService paymentService;
 
     @PostMapping
-    public ResponseEntity pay(@Valid @NotNull @RequestBody AddPaymentRequest addPaymentRequest) {
+    public ResponseEntity<PaymentResponse> pay(@Valid @NotNull @RequestBody AddPaymentRequest addPaymentRequest) {
         paymentService.pay(addPaymentRequest);
-        return ResponseEntity.ok().build();
+
+        return ResponseEntity.ok(new PaymentResponse("Pagamento realizado com sucesso!"));
     }
 
 

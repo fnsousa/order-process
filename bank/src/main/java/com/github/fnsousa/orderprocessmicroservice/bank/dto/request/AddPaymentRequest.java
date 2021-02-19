@@ -1,4 +1,4 @@
-package com.github.fnsousa.orderprocessmicroservice.bank.controller.request;
+package com.github.fnsousa.orderprocessmicroservice.bank.dto.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
