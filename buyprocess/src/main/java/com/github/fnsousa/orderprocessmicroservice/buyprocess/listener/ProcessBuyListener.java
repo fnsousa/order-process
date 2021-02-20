@@ -3,6 +3,7 @@ package com.github.fnsousa.orderprocessmicroservice.buyprocess.listener;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fnsousa.orderprocessmicroservice.buyprocess.dto.request.BuyTripKeyRequest;
+import com.github.fnsousa.orderprocessmicroservice.buyprocess.dto.request.OrderFinishedRequest;
 import com.github.fnsousa.orderprocessmicroservice.buyprocess.dto.response.PaymentResponse;
 import com.github.fnsousa.orderprocessmicroservice.buyprocess.service.BankService;
 import org.springframework.amqp.core.Message;
@@ -41,7 +42,14 @@ public class ProcessBuyListener {
 
         PaymentResponse paymentResponse = bankService.pay(buyTripKeyRequest);
 
+        OrderFinishedRequest finishedRequest = new OrderFinishedRequest();
+        finishedRequest.setApproved(paymentResponse.isApproved());
+        finishedRequest.setMessage(paymentResponse.getMessage());
+        finishedRequest.setBuyTripKey(buyTripKeyRequest);
+
         System.out.println("Pagamento procesado: " + paymentResponse.getMessage());
+        String jsonFinished = mapper.writeValueAsString(finishedRequest);
+        rabbitTemplate.convertAndSend(queueBuyFinished, jsonFinished);
     }
 
 }
