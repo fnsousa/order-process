@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-bank
+spec:
+  selector:
+    matchLabels:
+      app: ms-bank
+  template:
+    metadata:
+      labels:
+        app: ms-bank
+    spec:
+      containers:
+      - name: ms-bank
+        image: ms-bank:1.0
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+
+# minikube docker-env
+# eval $(minikube -p minikube docker-env)
+#
+# docker build -t ms-bank:1.0 .
