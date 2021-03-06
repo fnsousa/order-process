@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-bank
+spec:
+  selector:
+    matchLabels:
+      app: db-bank
+  template:
+    metadata:
+      labels:
+        app: db-bank
+    spec:
+      containers:
+      - name: db-bank
+        image: mysql:8.0.23
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: root

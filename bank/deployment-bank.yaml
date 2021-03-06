@@ -20,6 +20,16 @@ spec:
             cpu: "500m"
         ports:
         - containerPort: 8080
+        env:
+          - name: spring.profiles.active
+            value: prod
+          - name: DATASOURCE_URL
+            value: jdbc:mysql://service-db-bank:3306/bank
+          - name: DATASOURCE_LOGIN
+            value: root
+          - name: DATASOURCE_PASSWORD
+            value: root
+          
 
 # minikube docker-env
 # eval $(minikube -p minikube docker-env)
