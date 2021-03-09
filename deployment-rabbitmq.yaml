@@ -20,6 +20,7 @@ spec:
             cpu: "500m"
         ports:
           - containerPort: 15672
+          - containerPort: 5672
         env:
           - name: RABBITMQ_DEFAULT_USER
             value: root
