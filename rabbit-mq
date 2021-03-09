@@ -1,0 +1,6 @@
+rabbitmqadmin -u root -p root -V / declare exchange name=default type=direct
+rabbitmqadmin declare queue -u root -p root -V /  name=queue-buy-waiting
+rabbitmqadmin -u root -p root -V / declare binding source=default destination=queue-buy-waiting
+
+rabbitmqadmin declare queue -u root -p root -V /  name=queue-buy-finished
+rabbitmqadmin -u root -p root -V / declare binding source=default destination=queue-buy-finished

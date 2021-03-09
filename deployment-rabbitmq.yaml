@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: msg-rabbitmq
+spec:
+  selector:
+    matchLabels:
+      app: msg-rabbitmq
+  template:
+    metadata:
+      labels:
+        app: msg-rabbitmq
+    spec:
+      containers:
+      - name: msg-rabbitmq
+        image: rabbitmq:3-management
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+          - containerPort: 15672
+        env:
+          - name: RABBITMQ_DEFAULT_USER
+            value: root
+          - name: RABBITMQ_DEFAULT_PASS
+            value: root
+
+
+# minikube docker-env
+# eval $(minikube -p minikube docker-env)

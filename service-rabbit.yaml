@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+spec:
+  selector:
+    app: msg-rabbitmq
+  ports:
+  - port: 15672
+    targetPort: 15672
