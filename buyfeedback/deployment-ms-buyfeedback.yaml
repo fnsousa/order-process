@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ms-buytrip
+  name: ms-buyfeedback
 spec:
   selector:
     matchLabels:
-      app: ms-buytrip
+      app: ms-buyfeedback
   template:
     metadata:
       labels:
-        app: ms-buytrip
+        app: ms-buyfeedback
     spec:
-      containers: 
-      - name: ms-buytrip
-        image: ms-buytrip:1.0
+      containers:
+      - name: ms-buyfeedback
+        image: ms-buyfeedback:1.0
         resources:
           limits:
             memory: "512Mi"
             cpu: "500m"
         ports:
-          - containerPort: 8080
+        - containerPort: 8080
         env:
           - name: spring.profiles.active
             value: prod
@@ -29,8 +29,11 @@ spec:
             value: root
           - name: spring.rabbitmq.password
             value: root
+          - name: spring.redis.host
+            value: service-db-redis
+
 
 # minikube docker-env
 # eval $(minikube -p minikube docker-env)
 #
-# docker build -t ms-buytrip:1.0 .
+# docker build -t ms-buyfeedback:1.0 .

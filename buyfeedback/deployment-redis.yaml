@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-redis
+spec:
+  selector:
+    matchLabels:
+      app: db-redis
+  template:
+  - name: db-redis
+    image: alpine3.13
+    ports:
+    - containerPort: 6379
