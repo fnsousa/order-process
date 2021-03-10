@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-buyprocess
+spec:
+  selector:
+    matchLabels: 
+      app: ms-buyprocess
+  template:
+    metadata:
+      labels:
+        app: ms-buyprocess
+    spec:
+    - name: ms-buyprocess
+      image: ms-buyprocess:1.0
+      ports:
+      - containerPort: 8080
+      env:
+      - name: spring.profiles.active
+        value: prod
+      - name: spring.rabbitmq.host
+        value: service-rabbitmq
+      - name: spring.rabbitmq.username
+        value: root
+      - name: spring.rabbitmq.password
+        value: root
+      - name: bank.link
+        value: http://api.bank/payments
+
+
+# minikube docker-env
+# eval $(minikube -p minikube docker-env)
+#
+# docker build -t ms-buyprocess:1.0 .
