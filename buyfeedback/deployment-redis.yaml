@@ -7,7 +7,12 @@ spec:
     matchLabels:
       app: db-redis
   template:
-  - name: db-redis
-    image: alpine3.13
-    ports:
-    - containerPort: 6379
+    metadata:
+      labels:
+        app: db-redis
+    spec:
+      containers:
+      - name: db-redis
+        image: redis:alpine3.13
+        ports:
+        - containerPort: 6379

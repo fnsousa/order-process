@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 
 @Service
@@ -31,7 +32,7 @@ public class ProcessBuyListener {
     private BankService bankService;
 
     @RabbitListener(queues = "${queue.buyprocess}")
-    public void onMessage(Message message) throws UnsupportedEncodingException, JsonProcessingException {
+    public void onMessage(Message message) throws IOException {
 
         String json = new String(message.getBody(), "UTF-8");
 

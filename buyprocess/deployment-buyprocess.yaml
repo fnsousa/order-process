@@ -11,21 +11,26 @@ spec:
       labels:
         app: ms-buyprocess
     spec:
-    - name: ms-buyprocess
-      image: ms-buyprocess:1.0
-      ports:
-      - containerPort: 8080
-      env:
-      - name: spring.profiles.active
-        value: prod
-      - name: spring.rabbitmq.host
-        value: service-rabbitmq
-      - name: spring.rabbitmq.username
-        value: root
-      - name: spring.rabbitmq.password
-        value: root
-      - name: bank.link
-        value: http://api.bank/payments
+      containers:
+      - name: ms-buyprocess
+        image: ms-buyprocess:1.0
+        resources:
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 8080
+        env:
+        - name: spring.profiles.active
+          value: prod
+        - name: spring.rabbitmq.host
+          value: service-rabbitmq
+        - name: spring.rabbitmq.username
+          value: root
+        - name: spring.rabbitmq.password
+          value: root
+        - name: bank.link
+          value: http://api-bank/payments
 
 
 # minikube docker-env
