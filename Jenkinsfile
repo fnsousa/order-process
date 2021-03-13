@@ -8,25 +8,35 @@ pipeline {
 
     stages {
 
-        stage ('Initialize') {
-            steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
-            }
-        }
-
         stage("Checkout Source") {
             steps {
                 git url: "https://github.com/fnsousa/order-process.git", branch: "master"
             }
         }
 
-        stage ("Build bank")  {
+        stage ("Build Bank")  {
             steps {
                 sh "mvn clean package -f bank"
             }
         }
+
+        stage ("Build Buy Feedback")  {
+            steps {
+                sh "mvn clean package -f buyfeedback"
+            }
+        }
+
+        stage ("Build Buy Process")  {
+            steps {
+                sh "mvn clean package -f buyprocess"
+            }
+        }
+
+        stage ("Build Buy Trip")  {
+            steps {
+                sh "mvn clean package -f buytrip"
+            }
+        }
+
     }
 }
