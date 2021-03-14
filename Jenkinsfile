@@ -41,7 +41,7 @@ pipeline {
         stage ('Build image Bank')  {
             steps {
                 script {
-                    dockerAppBank = docker.build('felipenascimmento/bank:$(env.BUILD_ID)', '-f ./bank .')
+                    dockerAppBank = docker.build("felipenascimmento/bank:$(env.BUILD_ID)", '-f ./bank .')
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
         stage ('Build image Buy Feedback')  {
             steps {
               script {
-                    dockerAppBuyFeedback = docker.build('felipenascimmento/buyfeedback:$(env.BUILD_ID)', '-f ./buyfeedback .')
+                    dockerAppBuyFeedback = docker.build("felipenascimmento/buyfeedback:$(env.BUILD_ID)", '-f ./buyfeedback .')
                 }
             }
         }
@@ -57,7 +57,7 @@ pipeline {
         stage ('Build image Buy Process')  {
             steps {
                 script {
-                    dockerAppBuyProcess = docker.build('felipenascimmento/buyprocess:$(env.BUILD_ID)', '-f ./buyprocess .')
+                    dockerAppBuyProcess = docker.build("felipenascimmento/buyprocess:$(env.BUILD_ID)", '-f ./buyprocess .')
                 }
             }
         }
@@ -76,7 +76,7 @@ pipeline {
                     docker.withRegistry('https://hub.docker.com', 'dockerhub') {
                        dockerAppBank.push('latest')
                        dockerAppBank.push("$(env.BUILD_ID)")
-                    
+                    }
                 }
             }
         }
@@ -88,7 +88,7 @@ pipeline {
                     docker.withRegistry('https://hub.docker.com', 'dockerhub') {
                        dockerAppBuyFeedback.push('latest')
                        dockerAppBuyFeedback.push("$(env.BUILD_ID)")
-                    
+                    }
                 }
             }
         }
@@ -99,7 +99,7 @@ pipeline {
                     docker.withRegistry('https://hub.docker.com', 'dockerhub') {
                        dockerAppBuyProcess.push('latest')
                        dockerAppBuyProcess.push("$(env.BUILD_ID)")
-                    
+                    }
                 }
             }
         }
@@ -110,7 +110,7 @@ pipeline {
                     docker.withRegistry('https://hub.docker.com', 'dockerhub') {
                        dockerAppBuyTrip.push('latest')
                        dockerAppBuyTrip.push("$(env.BUILD_ID)")
-                    
+                    }
                 }
             }
         }
