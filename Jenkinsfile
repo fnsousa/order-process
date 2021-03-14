@@ -41,7 +41,7 @@ pipeline {
         stage ('Build image Bank')  {
             steps {
                 script {
-                    dockerAppBank = docker.build("felipenascimmento/bank:${env.BUILD_ID}", '-f ./bank .')
+                    dockerAppBank = docker.build("felipenascimmento/bank:${env.BUILD_ID}", '-f ./bank/Dockerfile .')
                 }
             }
         }
@@ -49,7 +49,7 @@ pipeline {
         stage ('Build image Buy Feedback')  {
             steps {
               script {
-                    dockerAppBuyFeedback = docker.build("felipenascimmento/buyfeedback:${env.BUILD_ID}", '-f ./buyfeedback .')
+                    dockerAppBuyFeedback = docker.build("felipenascimmento/buyfeedback:${env.BUILD_ID}", '-f ./buyfeedback/Dockerfile .')
                 }
             }
         }
@@ -57,7 +57,7 @@ pipeline {
         stage ('Build image Buy Process')  {
             steps {
                 script {
-                    dockerAppBuyProcess = docker.build("felipenascimmento/buyprocess:${env.BUILD_ID}", '-f ./buyprocess .')
+                    dockerAppBuyProcess = docker.build("felipenascimmento/buyprocess:${env.BUILD_ID}", '-f ./buyprocess/Dockerfile .')
                 }
             }
         }
@@ -65,7 +65,7 @@ pipeline {
         stage ('Build image Buy Trip')  {
             steps {
                script {
-                    dockerAppBuyTrip = docker.build("felipenascimmento/buytrip:${env.BUILD_ID}", '-f ./buytrip .')
+                    dockerAppBuyTrip = docker.build("felipenascimmento/buytrip:${env.BUILD_ID}", '-f ./buytrip/Dockerfile .')
                 }
             }
         }
