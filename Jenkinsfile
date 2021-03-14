@@ -69,51 +69,5 @@ pipeline {
                 }
             }
         }
-
-        stage ('Push Image Bank') {
-            steps {
-                script {
-                    docker.withRegistry('https://hub.docker.com', 'dockerhub') {
-                       dockerAppBank.push('latest')
-                       dockerAppBank.push("$(env.BUILD_ID)")
-                    }
-                }
-            }
-        }
-        
-
-        stage ('Push Image Buy Feedback')  {
-            steps {
-                script {
-                    docker.withRegistry('https://hub.docker.com', 'dockerhub') {
-                       dockerAppBuyFeedback.push('latest')
-                       dockerAppBuyFeedback.push("$(env.BUILD_ID)")
-                    }
-                }
-            }
-        }
-
-        stage ('Push Image Buy Process')  {
-            steps {
-                script {
-                    docker.withRegistry('https://hub.docker.com', 'dockerhub') {
-                       dockerAppBuyProcess.push('latest')
-                       dockerAppBuyProcess.push("$(env.BUILD_ID)")
-                    }
-                }
-            }
-        }
-
-        stage ('Push Image Buy Trip')  {
-            steps {
-               script {
-                    docker.withRegistry('https://hub.docker.com', 'dockerhub') {
-                       dockerAppBuyTrip.push('latest')
-                       dockerAppBuyTrip.push("$(env.BUILD_ID)")
-                    }
-                }
-            }
-        }
-
     }
 }
